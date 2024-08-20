@@ -1,5 +1,5 @@
 import 'dart:developer';
-import 'dart:ui';
+
 
 import 'package:asg13/model/card_model.dart';
 import 'package:flutter/material.dart';
@@ -43,17 +43,17 @@ class ButtonWidget extends StatelessWidget {
               
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  // color: Colors.red
+                  
               
                   border: Border.all(
                     width: 2,
-                    color: Color(0xff0C67C1)
+                    color: const Color(0xff0C67C1)
                   ),
               
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xff2B2222).withOpacity(0.5),
-                      Color(0xff6E6565).withOpacity(0.5)
+                      const Color(0xff2B2222).withOpacity(0.5),
+                      const Color(0xff6E6565).withOpacity(0.5)
                     ]
                   )
                 ),
@@ -68,23 +68,23 @@ class ButtonWidget extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(cardModel.cardNumerFormat(), style: TextStyle(fontSize: 20,color: Color(0xffFFFFFF).withOpacity(0.85)),),
+                        Text(cardModel.cardNumerFormat(), style: TextStyle(fontSize: 20,color: const Color(0xffFFFFFF).withOpacity(0.85)),),
                         Row(
                           children: [
-                            SizedBox(width: 28,),
-                            Text(cardModel.cardName, style: TextStyle(fontSize: 17,color: Color(0xffFFFFFF).withOpacity(0.85)),),
-                            SizedBox(width: 40,),
-                            Text("VALID\nTHRU", style: TextStyle(fontSize: 8,color: Color(0xffFFFFFF).withOpacity(0.85)),),
-                            SizedBox(width: 10,),
+                            const SizedBox(width: 28,),
+                            Text(cardModel.cardName, style: TextStyle(fontSize: 17,color: const Color(0xffFFFFFF).withOpacity(0.85)),),
+                            const SizedBox(width: 40,),
+                            Text("VALID\nTHRU", style: TextStyle(fontSize: 8,color: const Color(0xffFFFFFF).withOpacity(0.85)),),
+                            const SizedBox(width: 10,),
                             
-                            Text(cardModel.cardYearMonth(), style: TextStyle(fontSize: 12,color: Color(0xffFFFFFF).withOpacity(0.85)),),
+                            Text(cardModel.cardYearMonth(), style: TextStyle(fontSize: 12,color: const Color(0xffFFFFFF).withOpacity(0.85)),),
 
                            
 
 
                           ],
                         ),
-                         SizedBox(height: 20,)
+                         const SizedBox(height: 20,)
                       ],
                     )
 
@@ -109,7 +109,7 @@ class ButtonWidget extends StatelessWidget {
       
         decoration: BoxDecoration(
       
-          // color: Color(0xff0B80F3),
+          
       
           gradient: const LinearGradient(
             
@@ -124,7 +124,7 @@ class ButtonWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(16)
         ),
       
-        child: Center(child: Text("Show card data", style: TextStyle(fontWeight: FontWeight.bold,color: Color(0xffF5F5F5)),)),
+        child: const Center(child: Text("Show card data", style: TextStyle(fontWeight: FontWeight.bold,color: Color(0xffF5F5F5)),)),
       ),
     );
   }

@@ -29,7 +29,6 @@ class TexFieldWidget extends StatelessWidget {
         decoration:  InputDecoration(
 
           errorMaxLines: 1,
-          // contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 10.0), 
           hintText: hintTex,
           hintStyle:  TextStyle(fontSize: hintSize,color: const Color(0xffC9CBD0)),
           border: const OutlineInputBorder(

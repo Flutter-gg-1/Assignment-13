@@ -29,11 +29,9 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // const Spacer(
-              //   flex: 1,
-              // ),
+             
 
-              SizedBox(
+              const SizedBox(
                 height: 145,
               ),
               Center(
@@ -56,17 +54,19 @@ class _HomePageState extends State<HomePage> {
                             setState(() {});
                             return 'no tex';
                           }
+
+                          if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                            texHightG = 70;
+                            setState(() {});
+                            return 'no String';
+                          }
                           if (value.length != 16) {
                             texHightG = 70;
 
                             setState(() {});
                             return '16 num';
                           }
-                          if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
-                            texHightG = 70;
-                            setState(() {});
-                            return 'no String';
-                          }
+                          
                           
                           texHightG = 48;
                           cardModel.cardNum = value;
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                               setState(() {});
                             },
                           ),
-                          // TexFieldWidget()
+                          
                         ],
                       ),
                       const SizedBox(
