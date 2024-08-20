@@ -1,15 +1,18 @@
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:asg13/model/card_model.dart';
 import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({
-    super.key, required this.globalKey,
+    super.key, required this.globalKey, required this.cardModel,
   });
 
 
   final GlobalKey<FormState> globalKey;
+
+  final CardModel cardModel;
 
   @override
   Widget build(BuildContext context) {
@@ -60,19 +63,21 @@ class ButtonWidget extends StatelessWidget {
 
                   children: [
 
+                    Positioned(child: Image.asset("asset/Vector 2.png")),
+
                     Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text("1265  5678  8765  4321", style: TextStyle(fontSize: 20,color: Color(0xffFFFFFF).withOpacity(0.85)),),
+                        Text(cardModel.cardNumerFormat(), style: TextStyle(fontSize: 20,color: Color(0xffFFFFFF).withOpacity(0.85)),),
                         Row(
                           children: [
                             SizedBox(width: 28,),
-                            Text("Aditya Singh", style: TextStyle(fontSize: 17,color: Color(0xffFFFFFF).withOpacity(0.85)),),
+                            Text(cardModel.cardName, style: TextStyle(fontSize: 17,color: Color(0xffFFFFFF).withOpacity(0.85)),),
                             SizedBox(width: 40,),
                             Text("VALID\nTHRU", style: TextStyle(fontSize: 8,color: Color(0xffFFFFFF).withOpacity(0.85)),),
                             SizedBox(width: 10,),
                             
-                            Text("11/26", style: TextStyle(fontSize: 12,color: Color(0xffFFFFFF).withOpacity(0.85)),),
+                            Text(cardModel.cardYearMonth(), style: TextStyle(fontSize: 12,color: Color(0xffFFFFFF).withOpacity(0.85)),),
 
                            
 
