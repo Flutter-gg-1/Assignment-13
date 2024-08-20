@@ -9,6 +9,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String cardNumber = "";
+  String expiredDateMM = "";
+  String expiredDateYY = "";
+  String cardHolder = "";
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -43,6 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 }
                                 return null;
                               },
+                              onChanged: (value) => setState(() {
+                                cardNumber = value;
+                              }),
                               decoration: const InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -66,6 +73,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               SizedBox(
                                 width: 115,
                                 child: TextFormField(
+                                  onChanged: (value) => setState(() {
+                                    expiredDateMM = value;
+                                  }),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'Please enter Expired date';
@@ -117,12 +127,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     ),
                                     label: Text("Expired date (YY)"),
+
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(4),
                                       ),
                                     ),
                                   ),
+                                  onChanged: (value) => setState(() {
+                                    expiredDateYY = value;
+                                  }),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'Please enter expired date';
@@ -152,6 +166,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                               ),
+                              onChanged: (value) => setState(() {
+                                cardHolder = value;
+                              }),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter card holder name';
@@ -170,8 +187,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (_formKey.currentState!.validate()) {
                       // If the form is valid, display a snackbar. In the real world,
                       // you'd often call a server or save the information in a database.
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          content: SizedBox(
+                            height: MediaQuery.of(context).size.height / 4,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(cardNumber),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(cardHolder),
+                                    const Text("Valid thru"),
+                                    Text("$expiredDateMM/$expiredDateYY")
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       );
                     }
                   },
