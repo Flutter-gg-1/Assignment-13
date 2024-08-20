@@ -1,17 +1,30 @@
 ## Assignment-13:
-Implement this design in an app using Flutter, using widgets that we take in lesson.
 
-[Desgin in figma:](https://www.figma.com/design/ylPIS03xMTy38uFcR6M6MQ/Assignment-tuwaiq?node-id=0-1&t=GQBf0PyHYMorvihL-1)
-
-## Note:
-1. Use TextFormField to validate all textfield are not empty, the "Card number" has 16 number, the "Card holder" accept only text (number invalid).
-2. Upload GIF or Video of your app.
-3. If you upload GIF, upload it in README file.
+The projrct is an to add card info and display them.  
 
 
-## Submission Details:
-Deadline: 21 August 2024
-Submission Format: Provide your Flutter code file(s) along with a README file explaining widgets you are used.
 
-Good luck 🚀
-and happy coding! 🧑‍💻
+## project Details:
+
+
+-textFormField to input and valdite them
+
+-Form to check the final input state, info will show only if all input is validt 
+
+-showAlert function to Show info 
+
+
+## project output:
+
+![5922254160651206821](https://github.com/user-attachments/assets/eb1c5f2e-4249-487e-85c5-49d7281159c0)
+
+![5922254160651206822](https://github.com/user-attachments/assets/f5130134-0485-4a4b-8f18-1da16a7dbc9d)
+
+
+
+https://github.com/user-attachments/assets/45657537-a81f-43f5-98b5-ff10e71a692d
+
+
+
+## Author:
+Rahaf Alghamdi
