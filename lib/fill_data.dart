@@ -1,3 +1,4 @@
+import 'package:assignment13/validators.dart';
 import 'package:assignment13/widgets/user_input.dart';
 import 'package:flutter/material.dart';
 
@@ -28,18 +29,18 @@ class _FillDataState extends State<FillData> {
                 width: 315.48,
                 height: 297.78,
                 decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8.95)),
-                child: const Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    UserInput(label: "Card number",fontSize: 14.66, height: 39.58, width: 252.85),
+                    UserInput(label: "Card number",fontSize: 14.66, height: 39.58, width: 252.85, controller: cardNumberController,validator: cardNumberValidator, type: TextInputType.number),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        UserInput(label: "Expired date (MM)",fontSize: 10.79, height: 38.83, width: 114.33),
-                        UserInput(label: "Expired date (YY)",fontSize: 10.79, height: 38.83, width: 114.33),
+                        UserInput(label: "Expired date (MM)",fontSize: 10.79, height: 38.83, width: 114.33, controller: expireMonthController, validator: expireMonthValidator, type: TextInputType.number,),
+                        UserInput(label: "Expired date (YY)",fontSize: 10.79, height: 38.83, width: 114.33, controller: expireYearController, validator: expireYearValidator, type: TextInputType.number,),
                       ]
                     ),
-                    UserInput(label: "Card Holder",fontSize: 14.66, height: 39.58, width: 252.85),
+                    UserInput(label: "Card Holder",fontSize: 14.66, height: 39.58, width: 252.85, controller: cardHolderController, validator: cardHolderValidator, type: TextInputType.name,),
                   ],
                 ),
               ),
