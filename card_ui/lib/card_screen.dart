@@ -15,7 +15,7 @@ class _CardScreenState extends State<CardScreen> {
   TextEditingController txtCardYExpire = TextEditingController();
   TextEditingController txtCardHolder = TextEditingController();
 
-  String cardName = "";
+  String cardNumber = "";
   String cardMExpire = "";
   String cardYExpire = "";
   String cardHolder = "";
@@ -63,6 +63,9 @@ class _CardScreenState extends State<CardScreen> {
                       ),
                       hintText: "Card Number",
                     ),
+                    onChanged: (value) => setState(() {
+                      cardNumber = value;
+                    }),
                     validator: (value) {
                       if (value!.length > 22 || value.length < 22) {
                         return 'Card number must be 16 digits';
@@ -82,6 +85,7 @@ class _CardScreenState extends State<CardScreen> {
                             LengthLimitingTextInputFormatter(2),
                           ],
                           autovalidateMode: AutovalidateMode.onUserInteraction,
+                          keyboardType: const TextInputType.numberWithOptions(),
                           decoration: InputDecoration(
                             hintStyle: const TextStyle(
                                 fontSize: 10, color: Colors.black12),
@@ -99,6 +103,9 @@ class _CardScreenState extends State<CardScreen> {
                             ),
                             hintText: "Expired date (MM)",
                           ),
+                          onChanged: (value) => setState(() {
+                            cardMExpire = value;
+                          }),
                           validator: (value) {
                             if (value!.isEmpty ||
                                 int.tryParse(value.toString())! > 12) {
@@ -112,6 +119,7 @@ class _CardScreenState extends State<CardScreen> {
                         child: TextFormField(
                           controller: txtCardYExpire,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
+                          keyboardType: const TextInputType.numberWithOptions(),
                           inputFormatters: [
                             FilteringTextInputFormatter.digitsOnly,
                             LengthLimitingTextInputFormatter(2),
@@ -133,6 +141,9 @@ class _CardScreenState extends State<CardScreen> {
                             ),
                             hintText: "Expired date (YY)",
                           ),
+                          onChanged: (value) => setState(() {
+                            cardYExpire = value;
+                          }),
                           validator: (value) {
                             if (value!.isEmpty ||
                                 int.tryParse(value.toString())! < 24) {
@@ -161,6 +172,9 @@ class _CardScreenState extends State<CardScreen> {
                       ),
                       hintText: "Card Holder",
                     ),
+                    onChanged: (value) => setState(() {
+                      cardHolder = value;
+                    }),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Card holder must be fill it';
@@ -170,22 +184,114 @@ class _CardScreenState extends State<CardScreen> {
                 ],
               ),
             ),
-            Container(
-              width: 270,
-              height: 53,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: const LinearGradient(
-                      colors: [Color(0xff0B80F3), Color(0xff0C67C0)])),
-              child: const Text(
-                "show card data",
-                style: TextStyle(color: Colors.white),
-              ),
-            )
+            ShowCard(
+                cardName: cardHolder,
+                cardNumber: cardNumber,
+                cardExprireM: cardMExpire,
+                cardExprireY: cardYExpire)
           ],
         ),
       ),
+    );
+  }
+}
+
+class ShowCard extends StatelessWidget {
+  final String cardName;
+  final String cardNumber;
+  final String cardExprireM;
+  final String cardExprireY;
+
+  const ShowCard(
+      {super.key,
+      required this.cardName,
+      required this.cardNumber,
+      required this.cardExprireM,
+      required this.cardExprireY});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        if (cardName.isEmpty ||
+            cardNumber.isEmpty ||
+            cardExprireM.isEmpty ||
+            cardExprireY.isEmpty) {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              backgroundColor: Colors.red,
+              content: Text(
+                "there error with empty text",
+                style: TextStyle(color: Colors.white),
+              )));
+        } else {
+          showDialog<String>(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              backgroundColor: Colors.transparent,
+              actions: <Widget>[
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/card.png",
+                      alignment: Alignment.center,
+                      width: 330,
+                      fit: BoxFit.contain,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        Text(
+                          cardNumber,
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 20),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              width: 30,
+                            ),
+                            Text(
+                              cardName,
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                            const SizedBox(
+                              width: 70,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "VALID",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 10),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "$cardExprireM / $cardExprireY",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 10),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          );
+        }
+      },
+      child: const Text('Show Dialog'),
     );
   }
 }
