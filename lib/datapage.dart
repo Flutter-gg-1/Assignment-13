@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class DataPage extends StatefulWidget {
   const DataPage({super.key});
@@ -11,8 +11,8 @@ class DataPage extends StatefulWidget {
 
 class _DataPageState extends State<DataPage> {
   TextEditingController cardNumber = TextEditingController();
-  TextEditingController ExpMonth = TextEditingController();
-  TextEditingController ExpYear = TextEditingController();
+  TextEditingController expmonth = TextEditingController();
+  TextEditingController expyear = TextEditingController();
   TextEditingController cardName = TextEditingController();
 
   var cardnum = '';
@@ -23,13 +23,13 @@ class _DataPageState extends State<DataPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffCBD0DC),
+      backgroundColor: const Color(0xffCBD0DC),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 200,
               ),
               Container(
@@ -40,7 +40,7 @@ class _DataPageState extends State<DataPage> {
                     borderRadius: BorderRadius.circular(9)),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     SizedBox(
@@ -51,14 +51,14 @@ class _DataPageState extends State<DataPage> {
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           decoration: InputDecoration(
                               contentPadding:
-                                  EdgeInsets.symmetric(horizontal: 10.0),
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
                               hintText: "Card number",
-                              hintStyle: TextStyle(
+                              hintStyle: const TextStyle(
                                   color: Color(0xffC9CBD0),
                                   fontWeight: FontWeight.w300),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(4),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xff2A90F5), width: 1.47))
                               // ,  errorStyle: TextStyle(
                               //     color: Colors.red
@@ -74,7 +74,7 @@ class _DataPageState extends State<DataPage> {
                             }
                           },
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
@@ -84,20 +84,20 @@ class _DataPageState extends State<DataPage> {
                             width: 145,
                             child: TextFormField(
                               keyboardType: TextInputType.number,
-                              controller: ExpMonth,
+                              controller: expmonth,
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
                               decoration: InputDecoration(
                                   contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 10.0),
+                                      const EdgeInsets.symmetric(horizontal: 10.0),
                                   hintText: "Expired date (MM)",
-                                  hintStyle: TextStyle(
+                                  hintStyle: const TextStyle(
                                       color: Color(0xffC9CBD0),
                                       fontWeight: FontWeight.w300,
                                       fontSize: 13),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(4),
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                           color: Color(0xff2A90F5),
                                           width: 1.47))),
                               validator: (value) {
@@ -110,27 +110,27 @@ class _DataPageState extends State<DataPage> {
                                 }
                               },
                             )),
-                        SizedBox(
+                        const SizedBox(
                           width: 24,
                         ),
                         SizedBox(
                             width: 145,
                             child: TextFormField(
                               keyboardType: TextInputType.number,
-                              controller: ExpYear,
+                              controller: expyear,
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
                               decoration: InputDecoration(
                                   contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 10.0),
+                                      const EdgeInsets.symmetric(horizontal: 10.0),
                                   hintText: "Expired date (YY)",
-                                  hintStyle: TextStyle(
+                                  hintStyle: const TextStyle(
                                       color: Color(0xffC9CBD0),
                                       fontWeight: FontWeight.w300,
                                       fontSize: 13),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(4),
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                           color: Color(0xff2A90F5),
                                           width: 1.47))),
                               validator: (value) {
@@ -145,7 +145,7 @@ class _DataPageState extends State<DataPage> {
                             ))
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     SizedBox(
@@ -156,14 +156,14 @@ class _DataPageState extends State<DataPage> {
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           decoration: InputDecoration(
                               contentPadding:
-                                  EdgeInsets.symmetric(horizontal: 10.0),
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
                               hintText: "Card Holder",
-                              hintStyle: TextStyle(
+                              hintStyle: const TextStyle(
                                   color: Color(0xffC9CBD0),
                                   fontWeight: FontWeight.w300),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(4),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xff2A90F5), width: 1.47))),
                           validator: (value) {
                             cardname = value ?? "";
@@ -178,7 +178,7 @@ class _DataPageState extends State<DataPage> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 70,
               ),
               InkWell(
@@ -187,7 +187,7 @@ class _DataPageState extends State<DataPage> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            backgroundColor: Color.fromARGB(255, 72, 69, 69),
+                            backgroundColor: const Color.fromARGB(255, 72, 69, 69),
                             // backgroundColor: Color(0xff6E6565),
                             content: Container(
                               height: 183,
@@ -205,13 +205,13 @@ class _DataPageState extends State<DataPage> {
                                       Image.asset("assets/Vector 2.png"),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 40,
                                   ),
                                   Row(children: [
                                     Text(
                                       "$cardnum",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white, fontSize: 24),
                                     ),
                                   ]),
@@ -219,23 +219,23 @@ class _DataPageState extends State<DataPage> {
                                     children: [
                                       Text(
                                         " $cardname",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.white, fontSize: 16),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 50,
                                       ),
-                                      Text(
+                                      const Text(
                                         "Valid\nTHRU",
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 11),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 10,
                                       ),
                                       Text(
                                         "$expMonth/$expYear",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.white, fontSize: 14),
                                       )
                                     ],
@@ -250,10 +250,10 @@ class _DataPageState extends State<DataPage> {
                       height: 53,
                       width: 270,
                       decoration: BoxDecoration(
-                          color: Color(0xff0B80F3),
+                          color: const Color(0xff0B80F3),
                           borderRadius: BorderRadius.circular(15.62),
                           border: Border.all(width: 2, color: Colors.white)),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Show card data",
                           style: TextStyle(
