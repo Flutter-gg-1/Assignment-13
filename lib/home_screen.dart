@@ -31,10 +31,7 @@ class HomeScreen extends StatelessWidget {
                           height: 40,
                           child: TextField(
                             decoration: InputDecoration(
-                              fillColor: Colors.blue,
-                              labelText: 'Full Name',
-                              hintText: 'Enter your full name',
-                              prefixIcon: const Icon(Icons.person),
+                              hintText: 'Card number',
                               border: OutlineInputBorder(
                                 borderSide:
                                     const BorderSide(color: Colors.blue),
@@ -61,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                                     BorderRadius.all(Radius.circular(3)),
                                 borderSide: BorderSide(color: Colors.blue),
                               ),
-                              labelText: 'Search',
+                              labelText: 'Expired date (MM)',
                             ),
                           ),
                         ),
@@ -77,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                                     BorderRadius.all(Radius.circular(3)),
                                 borderSide: BorderSide(color: Colors.blue),
                               ),
-                              labelText: 'Search',
+                              labelText: 'Expired date (YY)',
                             ),
                           ),
                         ),
@@ -98,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                                 borderSide: BorderSide(
                                     width: 2.0), // تغيير اللون إلى الأحمر
                               ),
-                              labelText: 'Search',
+                              labelText: 'Card Holder',
                             ),
                           ),
                         ),
