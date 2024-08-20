@@ -213,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Error: Name cannot be empty';
-                                } else if (RegExp(r'^\d+$').hasMatch(value)) {
+                                } else if (RegExp(r'\d').hasMatch(value)) {
                                   return 'Error: Must NOT contain numbers';
                                 }
                                 return null;
