@@ -12,9 +12,9 @@ A simple flutter project showing the UI implementation of Bank Card Registration
 
 - Issues to be fixed:
 
-*Code can be better, TextFormFields should be seperated into a customWidget*
-*Some of the measurements are off, by a little*
-*Could not find a way to keep TextFormField border on after user Interaction*
+- *Code can be better, TextFormFields should be seperated into a customWidget*
+- *Some of the measurements are off, by a little*
+- *Could not find a way to keep TextFormField border on after user Interaction*
 
 
 ## UI
