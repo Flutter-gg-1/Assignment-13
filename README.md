@@ -1,16 +1,21 @@
-# assignment13_bankcard
+## Assignment-13/Bank Application:
+Welcom to the card bank application 
 
-A new Flutter project.
+### Goal 
+I n this project the goal is to take information about the bank card from user and if it's valid it will be displayed like an actual bank card 🤩
 
-## Getting Started
+#### Widget
+the new widgets i used in this project is **TextFormField** and how to validate the inputs 
 
-This project is a starting point for a Flutter application.
+### Result
+Not taking more of your time check yourself the final result
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+https://github.com/user-attachments/assets/ab7860d2-c030-428c-8214-4665040cebfc
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+Thank you for your reading❤️,
+And please if you have any comments to improve the project feel free to share
+
+
