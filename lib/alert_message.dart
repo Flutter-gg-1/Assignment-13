@@ -18,7 +18,7 @@ class AlertMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white.withOpacity(0.6),
         contentPadding: EdgeInsets.zero,
         content: Stack(
           children: [
@@ -40,27 +40,58 @@ class AlertMessage extends StatelessWidget {
                         blurRadius: 8,
                         color: Color.fromRGBO(0, 0, 0, 0.25))
                   ]),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 80,
-                  ),
-                  Row(
-                    children: [
-                      Text(cardNumber.substring(0, 4)),
-                      Text(' ${cardNumber.substring(4, 8)}'),
-                      Text(' ${cardNumber.substring(8, 12)}'),
-                      Text(' ${cardNumber.substring(12, 16)}'),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text(cardHolder),
-                      const Text('VALID\nTHRU'),
-                      Text('$expYY/$expMM'),
-                    ],
-                  )
-                ],
+              child: Padding(
+                padding: const EdgeInsets.only(left: 18, bottom: 15, top: 110),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          cardNumber.substring(0, 4),
+                          style: const TextStyle(fontFamily: 'Istok',fontSize: 20, color: Colors.white, letterSpacing: 1),
+                        ),
+                        Text(
+                          '  ${cardNumber.substring(4, 8)}',
+                          style: const TextStyle(fontFamily: 'Istok',fontSize: 20, color: Colors.white, letterSpacing: 1),
+                        ),
+                        Text(
+                          '  ${cardNumber.substring(8, 12)}',
+                          style: const TextStyle(fontFamily: 'Istok',fontSize: 20, color: Colors.white, letterSpacing: 1),
+                        ),
+                        Text(
+                          '  ${cardNumber.substring(12, 16)}',
+                          style: const TextStyle(fontFamily: 'Istok',fontSize: 20, color: Colors.white, letterSpacing: 1),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          cardHolder,
+                          style: const TextStyle(fontFamily: 'Istok',fontSize: 16, color: Colors.white, letterSpacing: 1),
+                        ),
+                        const SizedBox(width: 40,),
+                       const Column(
+                        children: [
+                         Text(
+                          'VALID',
+                          style: TextStyle(fontFamily: 'Istok',fontSize: 8, color: Colors.white, letterSpacing: 1),
+                        ),
+                        SizedBox(height: 2,),
+                         Text(
+                          'THRU',
+                          style: TextStyle(fontFamily: 'Istok',fontSize: 8, color: Colors.white, letterSpacing: 1),
+                        ),
+                       ],),
+                        const SizedBox(width: 15),
+                        Text(
+                          '$expYY/$expMM',
+                          style: const TextStyle(fontFamily: 'Istok',fontSize: 12, color: Colors.white, letterSpacing: 1),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             Positioned(

@@ -17,3 +17,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter_18pt-Regular.ttf
+    - family: Istok
+      fonts:
+        - asset: assets/fonts/IstokWeb-Regular.ttf
