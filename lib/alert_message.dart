@@ -64,18 +64,17 @@ class AlertMessage extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: -10,
-              left: -10,
+              top: -40,
+              left: -40,
               child: Container(
-                height: 59.26,
-                width: 65.64,
+                height: 100,
+                width: 120,
                 decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 2.5,
-                        color: const Color.fromRGBO(238, 157, 42, 0.31)),
-                    shape: BoxShape.rectangle,
-                    borderRadius:
-                        const BorderRadius.all(Radius.elliptical(250, 250))),
+                  border: Border.all(
+                      width: 2.5,
+                      color: const Color.fromRGBO(238, 157, 42, 0.31)),
+                  shape: BoxShape.circle,
+                ),
               ),
             ),
           ],
