@@ -50,11 +50,9 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                               labelText: 'Card Number',
                               hintText: 'XXXX XXXX XXXX XXXX',
                               hintStyle: TextStyle(
-                                  fontSize: 14.66,
-                                  color: AppColors.labelColor),
+                                  fontSize: 14.66, color: AppColors.labelColor),
                               labelStyle: TextStyle(
-                                  fontSize: 14.66,
-                                  color: AppColors.labelColor),
+                                  fontSize: 14.66, color: AppColors.labelColor),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -95,8 +93,7 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                          color: AppColors
-                                              .TextFormFieldBorder),
+                                          color: AppColors.TextFormFieldBorder),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     floatingLabelStyle: TextStyle(
@@ -111,31 +108,22 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                                         fontSize: 10.79,
                                         color: AppColors.labelColor),
                                     border: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(10),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    focusedErrorBorder:
-                                        OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: AppColors.errorText),
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: AppColors.errorText),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                          color: AppColors
-                                              .TextFormFieldBorder),
-                                      borderRadius:
-                                          BorderRadius.circular(10),
+                                          color: AppColors.TextFormFieldBorder),
+                                      borderRadius: BorderRadius.circular(10),
                                     )),
                                 keyboardType: TextInputType.number,
                                 inputFormatters: [
                                   FilteringTextInputFormatter.digitsOnly,
                                   LengthLimitingTextInputFormatter(2),
-                                  TextInputFormatter.withFunction(
-                                      (oldValue, newValue) {
-                                    return ExpiryDateFormatter()
-                                        .formatEditUpdate(oldValue, newValue);
-                                  }),
                                 ],
                                 textInputAction: TextInputAction.next,
                                 validator: (value) {
@@ -156,8 +144,7 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                          color: AppColors
-                                              .TextFormFieldBorder),
+                                          color: AppColors.TextFormFieldBorder),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     floatingLabelStyle: TextStyle(
@@ -172,21 +159,17 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                                         fontSize: 10.79,
                                         color: AppColors.labelColor),
                                     border: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(10),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    focusedErrorBorder:
-                                        OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: AppColors.errorText),
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: AppColors.errorText),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                          color: AppColors
-                                              .TextFormFieldBorder),
-                                      borderRadius:
-                                          BorderRadius.circular(10),
+                                          color: AppColors.TextFormFieldBorder),
+                                      borderRadius: BorderRadius.circular(10),
                                     )),
                                 keyboardType: TextInputType.number,
                                 inputFormatters: [
@@ -221,11 +204,9 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                               labelText: 'Card Holder',
                               hintText: 'John Doe',
                               hintStyle: TextStyle(
-                                  fontSize: 14.66,
-                                  color: AppColors.labelColor),
+                                  fontSize: 14.66, color: AppColors.labelColor),
                               labelStyle: TextStyle(
-                                  fontSize: 14.66,
-                                  color: AppColors.labelColor),
+                                  fontSize: 14.66, color: AppColors.labelColor),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -266,12 +247,9 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                           content: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
-                                  'Card Number: ${cardNumberController.text}'),
-                              Text(
-                                  'Expiry Date: ${expiryDateController.text}'),
-                              Text(
-                                  'Card Holder: ${cardHolderController.text}'),
+                              Text('Card Number: ${cardNumberController.text}'),
+                              Text('Expiry Date: ${expiryDateController.text}'),
+                              Text('Card Holder: ${cardHolderController.text}'),
                             ],
                           ),
                           actions: [
