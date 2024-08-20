@@ -70,6 +70,7 @@ class _CardScreenState extends State<CardScreen> {
                       if (value!.length > 22 || value.length < 22) {
                         return 'Card number must be 16 digits';
                       }
+                      return null;
                     },
                   ),
                   Row(
@@ -108,9 +109,11 @@ class _CardScreenState extends State<CardScreen> {
                           }),
                           validator: (value) {
                             if (value!.isEmpty ||
-                                int.tryParse(value.toString())! > 12) {
+                                int.tryParse(value.toString())! > 12 ||
+                                int.tryParse(value.toString())! == 0) {
                               return 'Enter 1-12';
                             }
+                            return null;
                           },
                         ),
                       ),
@@ -149,6 +152,7 @@ class _CardScreenState extends State<CardScreen> {
                                 int.tryParse(value.toString())! < 24) {
                               return "It isn't vaild";
                             }
+                            return null;
                           },
                         ),
                       ),
@@ -179,6 +183,7 @@ class _CardScreenState extends State<CardScreen> {
                       if (value!.isEmpty) {
                         return 'Card holder must be fill it';
                       }
+                      return null;
                     },
                   ),
                 ],
@@ -211,87 +216,118 @@ class ShowCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {
-        if (cardName.isEmpty ||
-            cardNumber.isEmpty ||
-            cardExprireM.isEmpty ||
-            cardExprireY.isEmpty) {
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-              backgroundColor: Colors.red,
-              content: Text(
-                "there error with empty text",
-                style: TextStyle(color: Colors.white),
-              )));
-        } else {
-          showDialog<String>(
-            context: context,
-            builder: (BuildContext context) => AlertDialog(
-              backgroundColor: Colors.transparent,
-              actions: <Widget>[
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/card.png",
-                      alignment: Alignment.center,
-                      width: 330,
-                      fit: BoxFit.contain,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        Text(
-                          cardNumber,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 20),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const SizedBox(
-                              width: 30,
-                            ),
-                            Text(
-                              cardName,
-                              style: const TextStyle(color: Colors.white),
-                            ),
-                            const SizedBox(
-                              width: 70,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  "VALID",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 10),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  "$cardExprireM / $cardExprireY",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 10),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
-            ),
-          );
-        }
-      },
-      child: const Text('Show Dialog'),
+    return SizedBox(
+      width: 270,
+      height: 53,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xff0B80F3),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
+        ),
+        onPressed: () {
+          if (cardName.isEmpty ||
+              cardNumber.isEmpty ||
+              cardExprireM.isEmpty ||
+              cardExprireY.isEmpty) {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                backgroundColor: Colors.red,
+                content: Center(
+                  child: Text(
+                    "Please fill the fields",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                )));
+          }
+          if (int.parse(cardExprireM) > 12 ||
+              int.parse(cardExprireM) <= 0 ||
+              int.parse(cardExprireY) < 24 ||
+              int.parse(cardExprireY) <= 0 ||
+              cardNumber.length < 22) {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                backgroundColor: Colors.red,
+                content: Center(
+                  child: Text(
+                    "Please make sure for entry fields",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                )));
+          } else {
+            showDialog<String>(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                backgroundColor: Colors.transparent,
+                actions: <Widget>[
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/card.png",
+                        alignment: Alignment.center,
+                        width: 330,
+                        fit: BoxFit.contain,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          Text(
+                            cardNumber,
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 20),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              const SizedBox(
+                                width: 30,
+                              ),
+                              Text(
+                                "  $cardName",
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                              const SizedBox(
+                                width: 70,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    "VALID",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 10),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    "$cardExprireM / $cardExprireY",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 10),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            );
+          }
+        },
+        child: const Text(
+          'Show Dialog',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
     );
   }
 }
