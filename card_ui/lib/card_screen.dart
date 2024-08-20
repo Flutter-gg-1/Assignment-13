@@ -161,6 +161,9 @@ class _CardScreenState extends State<CardScreen> {
                   TextFormField(
                     controller: txtCardHolder,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp("[a-zA-Z]")),
+                    ],
                     decoration: InputDecoration(
                       hintStyle:
                           const TextStyle(fontSize: 15, color: Colors.black12),
