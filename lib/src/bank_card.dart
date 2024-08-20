@@ -38,40 +38,36 @@ class _BankCardState extends State<BankCard> {
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 30, right: 30, top: 40),
-                          child: Padding(
-                            padding: const EdgeInsets.all(30),
-                            child: Column(
-                              children: [
+                          child: Column(
+                            children: [
                               //  cardNumber(cardNumberController),
-                                const SizedBox(height: 30),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Expanded(
-                                        child: expirdMonth(
-                                            expierdMController:
-                                                expierdMController)),
-                                    const SizedBox(width: 20),
-                                    Expanded(
-                                        child: expirdYear(
-                                            expierdYController:
-                                                expierdYController)),
-                                  ],
-                                ),
-                                const SizedBox(height: 30),
-                                cardHolder(
-                                    cardHolderController: cardHolderController),
-                                const SizedBox(height: 30),
-                                SizedBox(
-                                  height: 100,
-                                ),
-                                showCardData(context: context)
-                              ],
-                            ),
+                              const SizedBox(height: 30),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                      child: expirdMonth(
+                                          expierdMController:
+                                              expierdMController)),
+                                  const SizedBox(width: 20),
+                                  Expanded(
+                                      child: expirdYear(
+                                          expierdYController:
+                                              expierdYController)),
+                                ],
+                              ),
+                              const SizedBox(height: 30),
+                              cardHolder(
+                                  cardHolderController: cardHolderController),
+                            ],
                           ),
                         ),
-                      ]))
+                      ])),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  showCardData(context: context)
                 ]))));
   }
 }
