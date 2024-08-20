@@ -1,3 +1,4 @@
+import 'package:card_data/alert_message.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -113,24 +114,31 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             InkWell(
               onTap: () {
-              showDialog(context: context, builder: (context){
-                return AlertDialog();
-              });
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const AlertMessage(cardNumber: '1234123412341234',expMM: '11', expYY: '26',cardHolder: 'Aditya Singh',);
+                    });
               },
               child: Container(
                   height: 53.11,
                   width: 269.46,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 1),
-                    borderRadius:
-                        const BorderRadius.all(Radius.circular(15.62)),
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color.fromRGBO(11, 128, 243, 1),
-                        Color.fromRGBO(12, 103, 192, 1)
-                      ],
-                    ),
-                  ),
+                      border: Border.all(color: Colors.white, width: 1),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(15.62)),
+                      gradient: const LinearGradient(
+                        colors: [
+                          Color.fromRGBO(11, 128, 243, 1),
+                          Color.fromRGBO(12, 103, 192, 1)
+                        ],
+                      ),
+                      boxShadow: const [
+                        BoxShadow(
+                            offset: Offset(0, 3.12),
+                            blurRadius: 3.12,
+                            color: Color.fromRGBO(0, 0, 0, 0.25))
+                      ]),
                   child: const Center(
                       child: Text(
                     'Show card data',
