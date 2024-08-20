@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           SizedBox(
                             width: 252,
                             child: TextFormField(
+                              maxLength: 16,
                               keyboardType: TextInputType.number,
                               inputFormatters: [
                                 FilteringTextInputFormatter.digitsOnly
@@ -44,6 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter card number';
+                                }
+                                if (value.length < 16) {
+                                  return "The card number must be 16 digits";
                                 }
                                 return null;
                               },
@@ -53,12 +57,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               decoration: const InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Colors
-                                        .blue, // Set your desired border color here
+                                    color: Colors.blue,
                                     width: 2.0,
                                   ),
                                 ),
                                 label: Text("Card number"),
+                                counterText: '',
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(4),
@@ -87,13 +91,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                     FilteringTextInputFormatter.digitsOnly
                                   ],
                                   decoration: const InputDecoration(
-                                    counterText:
-                                        '', // This removes the limit label
-
+                                    counterText: '',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Colors
-                                            .blue, // Set your desired border color here
+                                        color: Colors.blue,
                                         width: 2.0,
                                       ),
                                     ),
@@ -116,18 +117,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                     FilteringTextInputFormatter.digitsOnly
                                   ],
                                   decoration: const InputDecoration(
-                                    counterText:
-                                        '', // This removes the limit label
-
+                                    counterText: '',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Colors
-                                            .blue, // Set your desired border color here
+                                        color: Colors.blue,
                                         width: 2.0,
                                       ),
                                     ),
                                     label: Text("Expired date (YY)"),
-
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(4),
@@ -153,8 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               decoration: const InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Colors
-                                        .blue, // Set your desired border color here
+                                    color: Colors.blue,
                                     width: 2.0,
                                   ),
                                 ),
@@ -185,17 +181,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // If the form is valid, display a snackbar. In the real world,
-                      // you'd often call a server or save the information in a database.
                       showDialog(
                         context: context,
                         builder: (BuildContext context) => AlertDialog(
+                          contentTextStyle:
+                              const TextStyle(color: Colors.white),
+                          backgroundColor:
+                              const Color.fromARGB(132, 73, 73, 73),
                           content: SizedBox(
                             height: MediaQuery.of(context).size.height / 4,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text(cardNumber),
+                                Container(
+                                    margin: const EdgeInsets.only(bottom: 30),
+                                    child: Text(cardNumber)),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
