@@ -6,7 +6,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(202, 184, 192, 197),
+      backgroundColor: const Color.fromARGB(202, 184, 192, 1),
       body: SafeArea(
           child: Center(
         child: Column(
@@ -32,11 +32,16 @@ class HomeScreen extends StatelessWidget {
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: 'Card number',
+                              hintStyle: const TextStyle(color: Colors.grey),
                               border: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.blue),
                                 borderRadius: BorderRadius.circular(3),
                               ),
+                              focusedBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue),
+                              ),
+                              enabledBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue),
+                              ),
                             ),
                           ),
                         ),
@@ -44,64 +49,10 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Flexible(
-                        child: SizedBox(
-                          width: 114,
-                          height: 38,
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(3)),
-                                borderSide: BorderSide(color: Colors.blue),
-                              ),
-                              labelText: 'Expired date (MM)',
-                            ),
-                          ),
-                        ),
-                      ),
-                      Flexible(
-                        child: SizedBox(
-                          width: 114,
-                          height: 38,
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(3)),
-                                borderSide: BorderSide(color: Colors.blue),
-                              ),
-                              labelText: 'Expired date (YY)',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+// hintText: 'Expired date (MM)',
+// hintText: 'Expired date (YY)',
+// hintText: 'Card Holder',
                   const SizedBox(height: 10),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: SizedBox(
-                          width: 252,
-                          height: 40,
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    width: 2.0), // تغيير اللون إلى الأحمر
-                              ),
-                              labelText: 'Card Holder',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                 ],
               ),
             ),
