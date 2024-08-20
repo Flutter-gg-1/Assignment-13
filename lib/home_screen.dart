@@ -57,14 +57,23 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 150,
-              height: 25,
-              child: MaterialButton(
+              width: 270,
+              height: 54,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                    const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                  ),
+                ),
                 onPressed: () {},
-                color: Colors.blue,
                 child: const Text(
                   'Show card data',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13.5,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             )
