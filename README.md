@@ -47,8 +47,12 @@ This project demonstrates basic form handling, validation, user interaction, and
 
 # 1
 
-![My Image](./assets/ScreenShots/pic1.png)
+![My Image](./assets/ScreenShots/pic3.png)
 
 # 2
+
+![My Image](./assets/ScreenShots/pic1.png)
+
+# 3
 
 ![My Image](./assets/ScreenShots/pic2.png)
