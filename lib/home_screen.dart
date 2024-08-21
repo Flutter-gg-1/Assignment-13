@@ -1,3 +1,4 @@
+import 'package:assignment_13/common.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,34 +36,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       Flexible(
                         child: Form(
                           key: _formKey,
-                          child: SizedBox(
-                            width: 252,
-                            height: 50,
-                            child: TextFormField(
-                              controller: myController,
+                          child: myTextFormField(
                               maxLength: 16,
-                              keyboardType: TextInputType.number,
+                              hintText: 'Card number',
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Please enter some text';
+                                  return 'Please enter card number';
+                                } else if (value.length < 16) {
+                                  return 'Please enter valid card number';
+                                } else {
+                                  return null;
                                 }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Card number',
-                                hintStyle: const TextStyle(color: Colors.grey),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(3),
-                                ),
-                                focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.blue),
-                                ),
-                                enabledBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.blue),
-                                ),
-                              ),
-                            ),
-                          ),
+                              }),
                         ),
                       ),
                     ],
