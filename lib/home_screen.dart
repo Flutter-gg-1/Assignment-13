@@ -68,9 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Please enter card number';
-                                } else if (value.length < 16) {
-                                  return 'Please enter valid card number';
+                                  return 'Invalid';
+                                } else if (value.length < 2) {
+                                  return 'Invalid';
                                 } else {
                                   return null;
                                 }
@@ -90,9 +90,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Please enter card number';
-                                } else if (value.length < 16) {
-                                  return 'Please enter valid card number';
+                                  return 'Invalid';
+                                } else if (value.length < 2) {
+                                  return 'Invalid';
                                 } else {
                                   return null;
                                 }
@@ -111,9 +111,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter card number';
-                          } else if (value.length < 16) {
-                            return 'Please enter valid card number';
+                            return 'Please enter your name';
+                          } else if (value.length < 3) {
+                            return 'Please enter valid name';
                           } else {
                             return null;
                           }
