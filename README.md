@@ -1,16 +1,34 @@
 # bank_card_app
 
-A new Flutter project.
+A new Flutter project that contain a UI that allows user to create a bank card.
 
-## Getting Started
+## Main Functionalities
 
-This project is a starting point for a Flutter application.
+### Text Feild Form
+to allows user to provide card info for create it
 
-A few resources to get you started if this is your first Flutter project:
+![alt text](./assest/readme/image.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Validation user input
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Validation card date
+![alt text](./assest/readme/image-1.png)
+
+#### Validation card number
+![alt text](./assest/readme/image-2.png)
+#### Validation card holder
+![alt text](./assest/readme/image-3.png)
+
+### Card Creation & `GlobalsKey`
+![alt text](./assest/readme/image-4.png)
+
+## Output
+![alt text](./assest/readme/image-5.png)
+
+![alt text](./assest/readme/image-6.png)
+
+![alt text](./assest/readme/cardGif.gif)
+
+Feel free to use with account name mentioned
+
+by `Basel-75` Github
