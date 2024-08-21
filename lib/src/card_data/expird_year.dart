@@ -7,6 +7,7 @@ Widget expirdYear({required TextEditingController expierdYController}) {
       controller: expierdYController,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
+          contentPadding: const EdgeInsets.all(10),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(3),
             borderSide: const BorderSide(color: Colors.blue, width: 2),
