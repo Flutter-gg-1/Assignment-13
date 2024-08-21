@@ -13,6 +13,7 @@ In this assignment, we are supposed to build flutter application to preview card
 - CardInfo : represents the styled container that showing the credit card.
 
 #### 3. Results ⭐
+!["results"](./readme_media/RESULTS.gif)
 
 #### 4. Conclusion 🏁
 User input must be handled properly specially if that input is going to be stored in a dataset. That is why we always should validate user input because users are UNPREDICTABLE.
