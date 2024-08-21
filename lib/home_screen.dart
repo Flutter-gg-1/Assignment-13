@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
           child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               width: 318,
@@ -44,15 +44,60 @@ class _HomeScreenState extends State<HomeScreen> {
                             return null;
                           }
                         }),
-                    const SizedBox(height: 10),
-                    // hintText: 'Expired date (MM)',
-                    // hintText: 'Expired date (YY)',
-                    // hintText: 'Card Holder',
-                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(
+                          width: 115,
+                          height: 40,
+                          child: myTextFormField(
+                              maxLength: 2,
+                              hintText: 'Expired date (MM)',
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter card number';
+                                } else if (value.length < 16) {
+                                  return 'Please enter valid card number';
+                                } else {
+                                  return null;
+                                }
+                              }),
+                        ),
+                        SizedBox(
+                          width: 115,
+                          height: 40,
+                          child: myTextFormField(
+                              maxLength: 2,
+                              hintText: 'Expired date (YY)',
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter card number';
+                                } else if (value.length < 16) {
+                                  return 'Please enter valid card number';
+                                } else {
+                                  return null;
+                                }
+                              }),
+                        ),
+                      ],
+                    ),
+                    myTextFormField(
+                        maxLength: 16,
+                        hintText: 'Card Holder',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter card number';
+                          } else if (value.length < 16) {
+                            return 'Please enter valid card number';
+                          } else {
+                            return null;
+                          }
+                        }),
                   ],
                 ),
               ),
             ),
+            const SizedBox(height: 130),
             SizedBox(
               width: 270,
               height: 54,

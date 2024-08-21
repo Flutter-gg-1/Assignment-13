@@ -5,7 +5,8 @@ Widget myTextFormField(
     int? maxLength,
     TextInputType? keyboardType,
     String? Function(String?)? validator,
-    String? hintText}) {
+    String? hintText,
+    double? width}) {
   return SizedBox(
     width: 252,
     height: 50,
