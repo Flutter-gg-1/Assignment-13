@@ -1,3 +1,4 @@
+import 'package:assignment_13/common.dart';
 import 'package:flutter/material.dart';
 
 class SecondScreen extends StatefulWidget {
@@ -21,16 +22,18 @@ class SecondScreen extends StatefulWidget {
 class _SecondScreenState extends State<SecondScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Dialog(
-        child: Container(
+    return Scaffold(
+      // show the card details
+      body: SafeArea(
+        child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(widget.cardNumber),
-              Text(widget.cardHolderName),
-              Text(widget.expiryMonthDate1),
-              Text(widget.expiryYearDate1),
-              Text(widget.cvvCode),
+              Container(
+                  color: const Color.fromRGBO(155, 150, 150, 1),
+                  width: 320,
+                  height: 183,
+                  child: myTextFormField()),
             ],
           ),
         ),
