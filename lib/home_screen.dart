@@ -1,5 +1,6 @@
 import 'package:assignment_13/common.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,6 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         maxLength: 16,
                         hintText: 'Card number',
                         fontSize: 14,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                        ],
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter card number';
