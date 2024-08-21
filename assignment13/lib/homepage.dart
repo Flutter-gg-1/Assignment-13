@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,10 +11,12 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  late String cardNumber;
-  late String expiryDate;
-  late String expiryYear;
-    late String cardHolder;
+
+
+   String cardNumber='';
+   String expiryDate='';
+   String expiryYear='';
+   String cardHolder='';
   final cardNumberController = TextEditingController();
   final expiryDateController = TextEditingController();
   final expiryYearController = TextEditingController();
@@ -27,7 +31,7 @@ class _HomepageState extends State<Homepage> {
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.fromLTRB(30, 250, 30, 100),
+              margin: const EdgeInsets.fromLTRB(30, 200, 30, 100),
               padding: const EdgeInsets.fromLTRB(20, 40, 20, 50),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 255, 255, 255),
@@ -154,7 +158,7 @@ class _HomepageState extends State<Homepage> {
               decoration: ShapeDecoration(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10), 
-                  side: BorderSide(color: const Color.fromARGB(255, 255, 255, 255), width: 2), 
+                  side: const BorderSide(color: Color.fromARGB(255, 255, 255, 255), width: 2), 
                 ),
                 gradient: const LinearGradient(
                   begin: Alignment.topLeft,
@@ -168,7 +172,53 @@ class _HomepageState extends State<Homepage> {
                   style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
-                  //
+showDialog(
+  context: context,
+  builder: (BuildContext context) {
+    return AlertDialog(
+      elevation: 0,
+      backgroundColor: const Color.fromARGB(215, 120, 120, 126),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: const BorderSide(color: Color.fromARGB(255, 42, 143, 245), width: 2),
+      ),
+      title: const Text(''),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row( 
+            mainAxisAlignment: MainAxisAlignment.start,  
+            children: [
+              Text(
+                cardNumber.replaceAllMapped(RegExp(r'.{4}'), (match) => '${match.group(0)} '),
+                style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 20),
+              ),
+            ],
+          ),
+           Row( 
+            mainAxisAlignment: MainAxisAlignment.start,  
+            children: [
+              Text(
+                cardHolder,
+                style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 16),
+              ),
+              Spacer(),
+              const Text(
+                "VALID \nTHRU",
+                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 10),
+              ),
+               Text(
+                "$expiryDate / $expiryYear",
+                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 12),
+              ),
+              SizedBox(width: 15,)
+            ],
+          ),
+        ],
+      ),
+    );
+  },
+);
                 },
               ),
             )
