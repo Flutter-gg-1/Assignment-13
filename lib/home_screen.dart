@@ -11,14 +11,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final TextEditingController myController = TextEditingController();
+  final TextEditingController myControllerName = TextEditingController();
+  final TextEditingController myControllerNumber = TextEditingController();
+  final TextEditingController myControllerMonthDate = TextEditingController();
+  final TextEditingController myControllerYearDate = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   String cardNumber = '';
   String expiryMonthDate = '';
   String expiryYearDate = '';
   String cardHolderName = '';
-  String cvvCode = '';
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           myTextFormField(
+                              controller: myControllerNumber,
                               maxLength: 16,
                               hintText: 'Card number',
                               fontSize: 14,
@@ -74,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 115,
                                 height: 40,
                                 child: myTextFormField(
+                                    controller: myControllerMonthDate,
                                     maxLength: 2,
                                     hintText: 'Expired date (MM)',
                                     fontSize: 10,
@@ -99,6 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 115,
                                 height: 40,
                                 child: myTextFormField(
+                                    controller: myControllerYearDate,
                                     maxLength: 2,
                                     hintText: 'Expired date (YY)',
                                     fontSize: 10,
@@ -124,6 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           const SizedBox(height: 5),
                           myTextFormField(
+                              controller: myControllerName,
                               hintText: 'Card Holder',
                               fontSize: 14,
                               fontSizeForInput: 14,
@@ -168,11 +174,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SecondScreen(
-                                      cardNumber: cardNumber,
-                                      expiryMonthDate1: expiryMonthDate,
-                                      expiryYearDate1: expiryYearDate,
-                                      cardHolderName: cardHolderName,
-                                      cvvCode: cvvCode)));
+                                        cardNumber: cardNumber,
+                                        expiryMonthDate1: expiryMonthDate,
+                                        expiryYearDate1: expiryYearDate,
+                                        cardHolderName: cardHolderName,
+                                      )));
+                          myControllerName.clear();
+                          myControllerNumber.clear();
+                          myControllerMonthDate.clear();
+                          myControllerYearDate.clear();
                         } else {
                           print('Error');
                         }
