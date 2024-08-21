@@ -8,6 +8,7 @@ Widget myTextFormField(
     String? Function(String?)? validator,
     String? hintText,
     double? fontSize,
+    double? fontSizeForInput,
     List<TextInputFormatter>? inputFormatters}) {
   return SizedBox(
     width: 252,
@@ -18,6 +19,7 @@ Widget myTextFormField(
       maxLength: maxLength,
       keyboardType: keyboardType,
       validator: validator,
+      style: TextStyle(color: Colors.black, fontSize: fontSizeForInput),
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.grey, fontSize: fontSize),

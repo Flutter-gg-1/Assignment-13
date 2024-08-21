@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         maxLength: 16,
                         hintText: 'Card number',
                         fontSize: 14,
+                        fontSizeForInput: 14,
                         inputFormatters: [
                           FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                         ],
@@ -60,6 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               maxLength: 2,
                               hintText: 'Expired date (MM)',
                               fontSize: 10,
+                              fontSizeForInput: 10,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                              ],
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter card number';
@@ -77,6 +83,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               maxLength: 2,
                               hintText: 'Expired date (YY)',
                               fontSize: 10,
+                              fontSizeForInput: 10,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                              ],
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter card number';
@@ -93,6 +104,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     myTextFormField(
                         hintText: 'Card Holder',
                         fontSize: 14,
+                        fontSizeForInput: 14,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'[a-zA-Z]')),
+                        ],
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter card number';
