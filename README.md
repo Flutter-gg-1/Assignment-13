@@ -1,4 +1,3 @@
-![logo](https://github.com/user-attachments/assets/c9e0c67c-23e1-4aaf-8fc3-a776340f68f6)
 # Cridet Card in Flutter
 
 ## Description
