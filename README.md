@@ -13,6 +13,11 @@ In this assignment, we are supposed to build flutter application to preview card
 - CardInfo : represents the styled container that showing the credit card.
 
 ### 3. Results ⭐
+
+##### 3.1 screenshots
+<img src="./readme_media/main_page.png" alt="main page" style='border:5px solid #1c1561'>
+
+##### 3.2 as a gif
 !["results"](./readme_media/RESULTS.gif)
 
 ### 4. Conclusion 🏁
