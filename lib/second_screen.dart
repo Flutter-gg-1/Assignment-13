@@ -24,14 +24,14 @@ class _SecondScreenState extends State<SecondScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // show the card details
-      body: Stack(
-        children: [
-          Container(
-            color: const Color.fromRGBO(203, 208, 220, 1),
-            width: double.infinity,
-            height: double.infinity,
-            child: Center(
-              child: Container(
+      body: Container(
+        color: const Color.fromRGBO(203, 208, 220, 1),
+        width: double.infinity,
+        height: double.infinity,
+        child: Center(
+          child: Stack(
+            children: [
+              Container(
                   color: const Color.fromRGBO(155, 150, 150, 1),
                   width: 320,
                   height: 183,
@@ -71,9 +71,9 @@ class _SecondScreenState extends State<SecondScreen> {
                       ),
                     ],
                   )),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
