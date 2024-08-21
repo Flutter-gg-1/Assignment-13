@@ -8,12 +8,15 @@ Widget myTextFormField(
     String? Function(String?)? validator,
     String? hintText,
     double? fontSize,
+    double? fontSizeLabel,
     double? fontSizeForInput,
     List<TextInputFormatter>? inputFormatters,
     void Function(String?)? onSaved,
     bool? enabled,
     bool? filled = false,
-    Color? fillColor = Colors.transparent}) {
+    Color? fillColor = Colors.transparent,
+    Color? colorLabel,
+    String? labelText}) {
   return SizedBox(
     width: 252,
     height: 50,
@@ -29,6 +32,8 @@ Widget myTextFormField(
       decoration: InputDecoration(
         filled: filled,
         fillColor: fillColor,
+        labelText: labelText,
+        labelStyle: TextStyle(color: colorLabel, fontSize: fontSizeLabel),
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.grey, fontSize: fontSize),
         border: OutlineInputBorder(

@@ -40,6 +40,9 @@ class _SecondScreenState extends State<SecondScreen> {
                       const SizedBox(height: 70),
                       myTextFormField(
                         enabled: false,
+                        labelText: widget.cardNumber,
+                        fontSizeLabel: 20,
+                        colorLabel: Colors.white,
                       ),
                       const SizedBox(
                         height: 10,
@@ -51,6 +54,9 @@ class _SecondScreenState extends State<SecondScreen> {
                             height: 50,
                             child: myTextFormField(
                               enabled: false,
+                              labelText: widget.cardHolderName,
+                              fontSizeLabel: 16,
+                              colorLabel: Colors.white,
                             ),
                           ),
                           SizedBox(
@@ -58,6 +64,10 @@ class _SecondScreenState extends State<SecondScreen> {
                             height: 50,
                             child: myTextFormField(
                               enabled: false,
+                              labelText: 'VALID THRU',
+                              fontSizeLabel: 10,
+                              fontSize: 10,
+                              colorLabel: Colors.white,
                             ),
                           ),
                           SizedBox(
@@ -65,6 +75,10 @@ class _SecondScreenState extends State<SecondScreen> {
                             height: 50,
                             child: myTextFormField(
                               enabled: false,
+                              labelText:
+                                  '${widget.expiryMonthDate1}/${widget.expiryYearDate1}',
+                              fontSizeLabel: 14,
+                              colorLabel: Colors.white,
                             ),
                           ),
                         ],
