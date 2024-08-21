@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 
 class DataPage extends StatefulWidget {
   const DataPage({super.key});
@@ -19,7 +17,7 @@ class _DataPageState extends State<DataPage> {
   var expMonth = '';
   var expYear = '';
   var cardname = '';
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,8 +86,8 @@ class _DataPageState extends State<DataPage> {
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
                               decoration: InputDecoration(
-                                  contentPadding:
-                                      const EdgeInsets.symmetric(horizontal: 10.0),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 10.0),
                                   hintText: "Expired date (MM)",
                                   hintStyle: const TextStyle(
                                       color: Color(0xffC9CBD0),
@@ -121,8 +119,8 @@ class _DataPageState extends State<DataPage> {
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
                               decoration: InputDecoration(
-                                  contentPadding:
-                                      const EdgeInsets.symmetric(horizontal: 10.0),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 10.0),
                                   hintText: "Expired date (YY)",
                                   hintStyle: const TextStyle(
                                       color: Color(0xffC9CBD0),
@@ -187,15 +185,13 @@ class _DataPageState extends State<DataPage> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            backgroundColor: const Color.fromARGB(255, 72, 69, 69),
-                            // backgroundColor: Color(0xff6E6565),
+                            backgroundColor:
+                                const Color.fromARGB(255, 72, 69, 69),
                             content: Container(
                               height: 183,
                               width: 320,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12),
-                                // border: Border.all(
-                                //     width: 2, color: Color(0xff2A90F5))
                               ),
                               child: Column(
                                 children: [
@@ -210,7 +206,8 @@ class _DataPageState extends State<DataPage> {
                                   ),
                                   Row(children: [
                                     Text(
-                                      "$cardnum",
+                                      cardnum.replaceAllMapped(RegExp(r".{4}"),
+                                          (match) => "${match.group(0)} "),
                                       style: const TextStyle(
                                           color: Colors.white, fontSize: 24),
                                     ),
@@ -218,9 +215,11 @@ class _DataPageState extends State<DataPage> {
                                   Row(
                                     children: [
                                       Text(
-                                        " $cardname",
+                                        cardname, // No need to format the card holder's name
                                         style: const TextStyle(
-                                            color: Colors.white, fontSize: 16),
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                        ),
                                       ),
                                       const SizedBox(
                                         width: 50,
