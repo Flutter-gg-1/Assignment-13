@@ -10,12 +10,16 @@ Widget myTextFormField(
     double? fontSize,
     double? fontSizeForInput,
     List<TextInputFormatter>? inputFormatters,
-    void Function(String?)? onSaved}) {
+    void Function(String?)? onSaved,
+    bool? enabled,
+    bool? filled = false,
+    Color? fillColor = Colors.transparent}) {
   return SizedBox(
     width: 252,
     height: 50,
     child: TextFormField(
-      inputFormatters:  inputFormatters,
+      enabled: enabled,
+      inputFormatters: inputFormatters,
       controller: controller,
       onSaved: onSaved,
       maxLength: maxLength,
@@ -23,6 +27,8 @@ Widget myTextFormField(
       validator: validator,
       style: TextStyle(color: Colors.black, fontSize: fontSizeForInput),
       decoration: InputDecoration(
+        filled: filled,
+        fillColor: fillColor,
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.grey, fontSize: fontSize),
         border: OutlineInputBorder(

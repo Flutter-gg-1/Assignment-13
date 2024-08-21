@@ -25,17 +25,22 @@ class _SecondScreenState extends State<SecondScreen> {
     return Scaffold(
       // show the card details
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
+        child: Stack(
+          children: [
+            Center(
+              child: Container(
                   color: const Color.fromRGBO(155, 150, 150, 1),
                   width: 320,
                   height: 183,
-                  child: myTextFormField()),
-            ],
-          ),
+                  child: Column(
+                    children: [
+                      myTextFormField(
+                        enabled: false,
+                      ),
+                    ],
+                  )),
+            ),
+          ],
         ),
       ),
     );
