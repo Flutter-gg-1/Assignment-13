@@ -1,4 +1,5 @@
 import 'package:assignment_13/common.dart';
+import 'package:assignment_13/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -13,11 +14,11 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController myController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  String? cardNumber;
-  String? expiryMonthDate;
-  String? expiryYearDate;
-  String? cardHolderName;
-  String? cvvCode;
+  String cardNumber = '';
+  String expiryMonthDate = '';
+  String expiryYearDate = '';
+  String cardHolderName = '';
+  String cvvCode = '';
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 14,
                               fontSizeForInput: 14,
                               onSaved: (p0) {
-                                cardNumber = p0;
+                                cardNumber = p0.toString();
                               },
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
@@ -78,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fontSize: 10,
                                     fontSizeForInput: 10,
                                     onSaved: (p0) {
-                                      expiryMonthDate = p0;
+                                      expiryMonthDate = p0.toString();
                                     },
                                     inputFormatters: [
                                       FilteringTextInputFormatter.allow(
@@ -103,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fontSize: 10,
                                     fontSizeForInput: 10,
                                     onSaved: (p0) {
-                                      expiryYearDate = p0;
+                                      expiryYearDate = p0.toString();
                                     },
                                     inputFormatters: [
                                       FilteringTextInputFormatter.allow(
@@ -127,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 14,
                               fontSizeForInput: 14,
                               onSaved: (p0) {
-                                cardHolderName = p0;
+                                cardHolderName = p0.toString();
                               },
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
@@ -163,10 +164,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                          print(cardNumber);
-                          print(expiryMonthDate);
-                          print(expiryYearDate);
-                          print(cardHolderName);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SecondScreen(
+                                      cardNumber: cardNumber,
+                                      expiryMonthDate1: expiryMonthDate,
+                                      expiryYearDate1: expiryYearDate,
+                                      cardHolderName: cardHolderName,
+                                      cvvCode: cvvCode)));
                         } else {
                           print('Error');
                         }
