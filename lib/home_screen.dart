@@ -12,6 +12,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController myController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  String? cardNumber;
+  String? expiryMonthDate;
+  String? expiryYearDate;
+  String? cardHolderName;
+  String? cvvCode;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +49,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               hintText: 'Card number',
                               fontSize: 14,
                               fontSizeForInput: 14,
+                              onSaved: (p0) {
+                                cardNumber = p0;
+                              },
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'[0-9]')),
@@ -67,6 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     hintText: 'Expired date (MM)',
                                     fontSize: 10,
                                     fontSizeForInput: 10,
+                                    onSaved: (p0) {
+                                      expiryMonthDate = p0;
+                                    },
                                     inputFormatters: [
                                       FilteringTextInputFormatter.allow(
                                           RegExp(r'[0-9]')),
@@ -89,6 +102,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     hintText: 'Expired date (YY)',
                                     fontSize: 10,
                                     fontSizeForInput: 10,
+                                    onSaved: (p0) {
+                                      expiryYearDate = p0;
+                                    },
                                     inputFormatters: [
                                       FilteringTextInputFormatter.allow(
                                           RegExp(r'[0-9]')),
@@ -110,6 +126,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               hintText: 'Card Holder',
                               fontSize: 14,
                               fontSizeForInput: 14,
+                              onSaved: (p0) {
+                                cardHolderName = p0;
+                              },
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'[a-zA-Z]')),
@@ -143,7 +162,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          print(myController.text);
+                          _formKey.currentState!.save();
+                          print(cardNumber);
+                          print(expiryMonthDate);
+                          print(expiryYearDate);
+                          print(cardHolderName);
                         } else {
                           print('Error');
                         }

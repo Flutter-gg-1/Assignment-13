@@ -9,13 +9,15 @@ Widget myTextFormField(
     String? hintText,
     double? fontSize,
     double? fontSizeForInput,
-    List<TextInputFormatter>? inputFormatters}) {
+    List<TextInputFormatter>? inputFormatters,
+    void Function(String?)? onSaved}) {
   return SizedBox(
     width: 252,
     height: 50,
     child: TextFormField(
       inputFormatters:  inputFormatters,
       controller: controller,
+      onSaved: onSaved,
       maxLength: maxLength,
       keyboardType: keyboardType,
       validator: validator,
