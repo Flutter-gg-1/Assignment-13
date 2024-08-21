@@ -13,7 +13,8 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
   final _formKey = GlobalKey<FormState>();
 
   TextEditingController cardNumberController = TextEditingController();
-  TextEditingController expiryDateController = TextEditingController();
+  TextEditingController mmDateController = TextEditingController();
+  TextEditingController yyDateController = TextEditingController();
   TextEditingController cardHolderController = TextEditingController();
 
   @override
@@ -89,7 +90,7 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                           children: [
                             Expanded(
                               child: TextFormField(
-                                controller: expiryDateController,
+                                controller: mmDateController,
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -141,6 +142,7 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                             const SizedBox(width: 20),
                             Expanded(
                               child: TextFormField(
+                                controller: yyDateController,
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -236,36 +238,92 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState?.validate() ?? false) {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: const Text('Card Details'),
-                          content: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text('Card Number: ${cardNumberController.text}'),
-                              Text('Expiry Date: ${expiryDateController.text}'),
-                              Text('Card Holder: ${cardHolderController.text}'),
-                            ],
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text('Close'),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  }
-                },
-                child: const Text('Show Card Details'),
+              Ink(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      AppColors.gradientStart,
+                      AppColors.gradientEnd,
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState?.validate() ?? false) {
+                      showDialog(
+  context: context,
+  builder: (context) {
+    return AlertDialog(
+      backgroundColor: Colors.transparent,
+      contentPadding: EdgeInsets.zero,
+      elevation: 0,
+      content: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              AppColors.cardGradientStart,
+              AppColors.cardGradientEnd,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  Text(cardNumberController.text, style: const TextStyle(letterSpacing: 2, fontWeight: FontWeight.bold, color: Colors.white)),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  Text(mmDateController.text, style: const TextStyle(letterSpacing: 2, fontWeight: FontWeight.bold, color: Colors.white, fontSize: 8)),
+                ],
+              ),
+              Row(
+                children: [
+                  Text(yyDateController.text, style: const TextStyle(letterSpacing: 2, fontWeight: FontWeight.bold, color: Colors.white, fontSize: 8)),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  Text(cardHolderController.text, style: const TextStyle(letterSpacing: 2, fontWeight: FontWeight.bold, color: Colors.white)),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  },
+);
+
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.white,
+                    side: const BorderSide(color: Colors.white, width: 2),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 80,
+                      vertical: 20,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    elevation: 0,
+                  ),
+                  child: const Text('Show card data'),
+                ),
               ),
             ],
           ),
@@ -274,4 +332,3 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
     ));
   }
 }
-
