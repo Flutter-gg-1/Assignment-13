@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     myTextFormField(
                         maxLength: 16,
                         hintText: 'Card number',
+                        fontSize: 14,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter card number';
@@ -44,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             return null;
                           }
                         }),
+                    const SizedBox(height: 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -53,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: myTextFormField(
                               maxLength: 2,
                               hintText: 'Expired date (MM)',
+                              fontSize: 10,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter card number';
@@ -69,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: myTextFormField(
                               maxLength: 2,
                               hintText: 'Expired date (YY)',
+                              fontSize: 10,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter card number';
@@ -81,9 +85,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 5),
                     myTextFormField(
-                        maxLength: 16,
                         hintText: 'Card Holder',
+                        fontSize: 14,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter card number';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 Widget myTextFormField(
     {TextEditingController? controller,
@@ -6,18 +7,20 @@ Widget myTextFormField(
     TextInputType? keyboardType,
     String? Function(String?)? validator,
     String? hintText,
-    double? width}) {
+    double? fontSize,
+    List<TextInputFormatter>? inputFormatters}) {
   return SizedBox(
     width: 252,
     height: 50,
     child: TextFormField(
+      inputFormatters:  inputFormatters,
       controller: controller,
       maxLength: maxLength,
       keyboardType: keyboardType,
       validator: validator,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.grey),
+        hintStyle: TextStyle(color: Colors.grey, fontSize: fontSize),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(3),
         ),
